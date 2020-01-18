@@ -25,3 +25,13 @@ An example for
 ```
 node src/index.js "Slayer" "Show No Mercy" "https://www.youtube.com/watch?v=rF_77Bsctds"
 ```
+
+## Future Features
+
+- tag metadata via [Beets](https://beets.readthedocs.io/en/stable/)
+- link to artist website, tours, merchandise
+- suggest similar artists
+- suggest local artists 
+- find local gigs
+- create a web interface
+- containerize
