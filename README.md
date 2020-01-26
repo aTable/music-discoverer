@@ -35,3 +35,7 @@ node src/index.js "Slayer" "Show No Mercy" "https://www.youtube.com/watch?v=rF_7
 - find local gigs
 - create a web interface
 - containerize
+
+## Future project direction
+
+- rewrite to Haskell

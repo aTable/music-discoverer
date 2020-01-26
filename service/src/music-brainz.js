@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { Track } = require('./models/Track')
 
 const brainz = axios.create({
   baseURL: "https://musicbrainz.org/ws/2",
@@ -58,7 +59,7 @@ function getTracklistForArtistsAlbum(artist, album) {
       x => x.title.toLowerCase() === album.toLowerCase()
     );
     return getTracklist(matchingAlbum.releases[0].id).then(tracklist => {
-      return tracklist;
+      return tracklist.map(x => new Track(x.title, x.length));
     });
   });
 }
