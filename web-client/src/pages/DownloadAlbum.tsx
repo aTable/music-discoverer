@@ -26,7 +26,10 @@ const Home = (props: IDownloadAlbum) => {
   return (
     <div className="container">
       <h1>Download album</h1>
-      <p>This is for an album that's available as a single video</p>
+      <p>
+        This is for an album that's available as a single video{" "}
+        <a href="https://www.youtube.com/watch?v=UCTtedwfazQ">like this</a>. 
+      </p>
 
       <form onSubmit={submit}>
         <div className="form-group row">
