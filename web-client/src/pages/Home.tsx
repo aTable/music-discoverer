@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, {  } from 'react'
 
 interface IHomeProps {
-  store: any;
+    store: any
 }
 
-const Home = (props: IHomeProps) => {
+const Home = (_: IHomeProps) => {
+    
+    return (
+        <div className="container">
+            <h1>Discover Music</h1>
+            
+            <p>Find new music</p>
+        </div>
+    )
+}
 
-  return (
-    <div className="container">
-      <h1>Discover music</h1>
-      <p>Find artists and local talent similar to your preferences</p>
-    </div>
-  );
-};
-
-export default Home;
+export default Home

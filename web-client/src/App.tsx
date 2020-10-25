@@ -1,48 +1,37 @@
-import React, { Component, createRef } from 'react'
+import React, { useRef } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import NotificationSystem from 'react-notification-system'
-import AppStore from './stores/AppStore'
-import uiStore from './stores/UiStore'
-
 import Navbar from './components/Navbar'
-import PrivateRoute from './components/hocs/PrivateRoute'
-
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
-import DownloadAlbum from './pages/DownloadAlbum'
-import Login from './pages/Login'
-import Protected from './pages/Protected'
+//import config from './config'
+import NotificationSystem, { System } from 'react-notification-system'
+import ErrorBoundary from './components/ErrorBoundary'
+import MediaIdentifier from './pages/MediaIdentifier'
+import { UiContextProvider } from './stores/UiContext'
 
-const appStore = new AppStore()
+interface IAppProps {}
 
-class App extends Component {
-  notificationSystemRef: React.RefObject<any> = createRef()
-
-  componentDidMount() {
-    appStore.init()
-    uiStore.init(this.notificationSystemRef)
-  }
-
-  render() {
+/**
+ * The root of the application built with [TypeScript](https://www.typescriptlang.org/)
+ * @param props The props
+ */
+const App = (props: IAppProps) => {
+    const notificationSystem = useRef<System>(null)
     return (
-        <Router>
-          <div id="application">
-            <NotificationSystem ref={this.notificationSystemRef} />
-
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/download-album" component={DownloadAlbum} />
-              <Route exact path="/login" component={Login} />
-
-              <PrivateRoute exact path="/protected" component={Protected} />
-
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-        </Router>
+        <UiContextProvider notificationSystem={notificationSystem}>
+            <NotificationSystem ref={notificationSystem} />
+                    <Router>
+                        <Navbar />
+                        <ErrorBoundary>
+                            <Switch>
+                                <Route path="/media-identifier" component={MediaIdentifier} />
+                                <Route path="/" component={Home} />
+                                <Route component={NotFound} />
+                            </Switch>
+                        </ErrorBoundary>
+                    </Router>
+        </UiContextProvider>
     )
-  }
 }
 
 export default App
