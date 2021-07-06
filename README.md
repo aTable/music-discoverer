@@ -38,4 +38,12 @@ node src/index.js "Slayer" "Show No Mercy" "https://www.youtube.com/watch?v=rF_7
 
 ## Future project direction
 
-- rewrite to Haskell
+- rewrite to Haskell/Rust
+
+## Troubleshooting
+
+```
+ftp ${HOST} ${PORT}
+
+ftp put /path/to/file Music/destination/path
+```

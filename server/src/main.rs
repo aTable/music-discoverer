@@ -51,7 +51,7 @@ fn main()  -> Result<(), Box<dyn Error>> {
 
 fn acquire(location: String) -> String {
     let invokee = format!("youtube-dl --extract-audio --audio-format mp3 -o '~/Downloads/music-discoverer/%(title)s.%(ext)s' {}", location);
-    let output = Command::new("sh")
+    let output = Command::new("sh ")
     .arg("-c")
     .arg(invokee)
     .output()
@@ -73,4 +73,4 @@ fn acquire(location: String) -> String {
     println!("result: {}", s.to_owned());
     
     return s.to_string();
-}
+}`

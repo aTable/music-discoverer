@@ -7,9 +7,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build && npm run generate-docs",
         "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "generate-docs": "typedoc",
-        "gql-codegen": "NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --config codegen.yml"
+        "eject": "react-scripts eject"
     },
     "browserslist": {
         "production": [
@@ -32,7 +30,7 @@
         "@types/react-notification-system": "^0.2.39",
         "@types/react-router-dom": "^5.1.5",
         "axios": "^0.19.2",
-        "bootstrap": "^4.5.1",
+        "bootstrap": "^5.0.0-alpha2",
         "date-fns": "^2.15.0",
         "formik": "^2.1.5",
         "jquery": "^3.5.1",
